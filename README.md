@@ -1,1 +1,1 @@
-Michael_Hornsby_Exercise_9
+This is Michael Hornsby's EDRM 718 Exercise Set 9
