@@ -4,3 +4,51 @@ output: html_notebook
 ---
 
 Michael Hornsby EDRM 718 Exercise Set 9
+
+Libraries
+
+```{r include=FALSE}
+library(here)
+library(tidyverse)
+library(ggrepel)
+library(scales)
+library(readxl)
+```
+
+```{r}
+abuse <- read_csv(here("data", "SexualAbuseData.csv"))
+```
+
+Number 1
+
+```{r}
+ggplot(abuse, aes(x = csa, y = ptsd)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of PTSD Comparison for Abused VS Not Abused Women",
+       x = "Childhood Sexual Abuse",
+       y = "PTSD Score")
+```
+
+
+Number 2
+
+```{r}
+ggplot(abuse, aes(x = csa, y = cpa)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Childhood Physical Abuse Comparison for Abused VS Not Abused Women",
+       x = "Childhood Sexual Abuse",
+       y = "Childhood Physical Abuse Score")
+```
+
+
+Number 3
+
+```{r}
+ggplot(abuse, aes(x = cpa, y = ptsd, color = csa, shape = csa)) +
+  geom_point(aes(color = csa)) +
+  stat_smooth(method = lm) +
+  labs(title = "Scatter Plot and Regression Lines for PTSD Scores by CPA Scores",
+       x = "Childhood Physical Abuse Score",
+       y = "PTSD Score")
+```
+
